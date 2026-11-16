@@ -224,3 +224,4 @@ __marimo__/
 
 .env
 env
+app/static/movies/
