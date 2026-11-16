@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>CustomCinemaLab</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        Hello world! This is CustomCinemaLab.
 
-        <a href="http://192.168.1.48:5000/movies/spidermanbrandnewday.mp4/">Watch Sample Movie</a>
-    </body>
-</html>
+<body>
+    {% extends 'base.html' %}
+    {% block page_content %}
+        Hello world! This is CustomCinemaLab. 
+
+        <a href="http://192.168.1.48:5000/movies/spidermanbrandnewday.mp4/" class="btn btn-default">Watch Sample Movie</a>
+    {% endblock %}
+</body>

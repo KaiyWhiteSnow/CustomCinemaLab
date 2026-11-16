@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
+    {% extends 'base.html' %}
+    {% block page_content %}
+    <h1>Now Playing: {{ movie_name }}</h1>
     <video width="640" height="360" controls>
-        <source src="{{ movie_name }}" type="video/mp4">
+        <source src="{{ "/static/movies/"+movie_name }}" type="video/mp4">
     </video>
+    {% endblock %}
 </body>
-</html>
