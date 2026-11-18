@@ -3,12 +3,14 @@ from PyMovieDb import IMDB
 import json
 import re
 
+
 Online = Blueprint('online', __name__)
 
 
 def _extract_imdb_id(url: str) -> str | None:
     match = re.search(r'tt\d+', url)
     return match.group(0) if match else None
+
 
 @Online.route("/movies/", methods=["GET", "POST"])
 def movies():
@@ -17,12 +19,23 @@ def movies():
         movie = request.form.get("movie")
         json_results = json.loads(imdb.get_by_name(movie))
         id = _extract_imdb_id(json_results['url']) if json_results else None
+
         if id:
             print(f"Playing the first result: {json_results['name']}")
+
             return redirect(url_for("online.movie_player", movie_name=movie, vid_url="https://vidsrc.mov/embed/movie/" + id))
         else:
             return render_template("movie_search.html", error="Movie not found.")
+
     return render_template("movie_search.html")
+
+
+@Online.route("/movies/search/<movie_name>", methods=["GET", "POST"])
+def search_movies(movie_name: str):
+    imdb = IMDB()
+    json_results = json.loads(imdb.search(movie_name))
+
+    return json_results
 
 
 @Online.route("/movies/<movie_name>/", methods=["GET", "POST"])
