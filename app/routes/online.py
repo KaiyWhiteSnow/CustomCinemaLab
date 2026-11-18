@@ -3,8 +3,6 @@ from PyMovieDb import IMDB
 import json
 import re
 
-
-imdb = IMDB()
 Online = Blueprint('online', __name__)
 
 
@@ -15,6 +13,7 @@ def _extract_imdb_id(url: str) -> str | None:
 @Online.route("/movies/", methods=["GET", "POST"])
 def movies():
     if request.method == "POST":
+        imdb = IMDB()
         movie = request.form.get("movie")
         json_results = json.loads(imdb.get_by_name(movie))
         id = _extract_imdb_id(json_results['url']) if json_results else None
