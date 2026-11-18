@@ -1,9 +1,13 @@
-<body>
-    {% extends 'base.html' %}
-    {% block page_content %}
-    <h1>Now Playing: {{ movie_name }}</h1>
-    <video width="640" height="360" controls>
-        <source src="{{ "/static/movies/"+movie_name }}" type="video/mp4">
-    </video>
-    {% endblock %}
-</body>
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h2>{{ movie_name }}</h2>
+
+<iframe
+    src="{{ vid_url }}"
+    width="100%"
+    height="600"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
+{% endblock %}
