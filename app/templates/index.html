@@ -1,9 +1,7 @@
 
 {% extends 'base.html' %}
 {% block page_content %}
-<form method="POST" action="/" 
-      class="d-flex flex-row align-items-center justify-content-center gap-3">
-
+<form method="POST" action="/" class="d-flex flex-row align-items-center justify-content-center gap-3">
     <button
         type="submit"
         name="online"
@@ -23,9 +21,6 @@
         style="--button-image: url('{{ url_for('static', filename='img/offline.jpg') }}');">
         Offline
     </button>
-
-
-
 </form>
 
 
