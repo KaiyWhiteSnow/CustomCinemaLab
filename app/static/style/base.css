@@ -1,0 +1,12 @@
+:root {
+    color-scheme: light;
+}
+
+body {
+    background-color: #1b1b1b !important;
+}
+
+form {
+    overflow: visible;
+    padding: 10px;
+}
