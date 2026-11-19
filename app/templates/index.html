@@ -1,11 +1,27 @@
 
 {% extends 'base.html' %}
 {% block page_content %}
-    Hello world! This is CustomCinemaLab. 
-    <form method="POST" action="/">
-        <input type="submit" name="online" id="online" value="Online" class="btn btn-primary">
-        <input type="submit" name="offline" id="offline" value="Offline" class="btn btn-secondary">
-    </form>
+<form method="POST" action="/" class="d-flex flex-row align-items-center justify-content-center gap-3">
+    <button
+        type="submit"
+        name="online"
+        id="online"
+        value="Online"
+        class="button-background w-100 h-100"
+        style="--button-image: url('{{ url_for('static', filename='img/online.jpg') }}');">
+        Online
+    </button>
 
-    <a href="http://192.168.1.48:5000/offline/movies/spidermanbrandnewday.mp4/" class="btn btn-default">Watch Sample Movie</a>
+    <button
+        type="submit"
+        name="offline"
+        id="offline"
+        value="Offline"
+        class="button-background w-100 h-100"
+        style="--button-image: url('{{ url_for('static', filename='img/offline.jpg') }}');">
+        Offline
+    </button>
+</form>
+
+
 {% endblock %}

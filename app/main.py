@@ -11,9 +11,6 @@ app.register_blueprint(Online, url_prefix='/online')
 app.register_blueprint(Offline, url_prefix='/offline')
 
 
-bootstrap = Bootstrap(app)
-
-
 # Default route for the application
 @app.route("/", methods=["GET", "POST"])
 def defaultRoute():
